@@ -5,6 +5,7 @@ namespace core\Api;
 use core\Model\ModelLoader;
 use core\Response\ResponseHandler;
 use core\Services\ServiceLoader;
+use core\Util\Singleton;
 
 /**
  * Api Baseclass. Every Api class MUST extend this class!
@@ -15,7 +16,7 @@ use core\Services\ServiceLoader;
  *
  * @author Robin Sticher <robin@sticher.info>
  */
-abstract class Api
+abstract class Api extends Singleton
 {
     /**
      * Response Object.

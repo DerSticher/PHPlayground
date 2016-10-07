@@ -2,12 +2,20 @@
 
 namespace core\Services;
 
-abstract class Service
+use core\Model\ModelLoader;
+use core\Util\Singleton;
+
+abstract class Service extends Singleton
 {
-    protected $Other;
 
     public function __construct()
     {
         $this->Other = ServiceLoader::getInstance();
+        $this->Model = ModelLoader::getInstance();
+    }
+
+    public function setService($name, $service)
+    {
+
     }
 }

@@ -26,7 +26,12 @@ abstract class LoaderAbstract extends Singleton
      */
     public function __get($name)
     {
-        $ns = $this->namespace . '\\' . $name;
-        return new $ns;
+        $ns = '\\' . $this->namespace . '\\' . $name;
+
+        if (method_exists($ns, 'getInstance')) {
+            return call_user_func($ns . '::getInstance');
+        }
+
+        throw new \Exception("DAMN! THATS NO OBJECT, DUDE!", -1);
     }
 }

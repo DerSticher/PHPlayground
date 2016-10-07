@@ -30,9 +30,13 @@ class ResponseHandler extends Singleton
      */
     public function init()
     {
-        $reqHeaders = getallheaders();
-
         $this->responseClass = new JsonResponse;
+
+        if (!function_exists('getallheaders')) {
+            return;
+        }
+
+        $reqHeaders = \getallheaders();
 
         if (isset($reqHeaders['Accept'])) {
             switch ($reqHeaders) {

@@ -1,8 +1,8 @@
 <?php
 
-require_once '..' . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'autoloader.php';
-require_once '..' . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'util.php';
-require_once '..' . DS . 'private' . DS . 'config' . DS . 'core.php';
+require_once __DIR__ . '/../private/autoloader.php';
+require_once __DIR__ . '/../private/config/util.php';
+require_once __DIR__ . '/../private/config/core.php';
 use core\Router;
 
 $router = new Router();

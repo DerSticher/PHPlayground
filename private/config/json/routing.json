@@ -1,4 +1,4 @@
 {
-    "/Main/sf": "Main.sf",
-    "/Main/test": "Main.page"
+    "/Test/service": "Test.service",
+    "/Test/test": "Test.test"
 }
