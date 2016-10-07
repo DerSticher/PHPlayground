@@ -47,7 +47,8 @@ class ResponseHandler extends Singleton
                 // TODO: Create pdf response and figure out how to restrict usage of it
                 case 'application/json':
                 default:
-                    $this->responseClass = new JsonResponse;
+                    $this->responseClass = new XMLResponse;
+                    // $this->responseClass = new JsonResponse;
                     break;
             }
         }

@@ -60,18 +60,39 @@ class XMLResponse extends ResponseAbstract
      */
     public function array_to_xml(array $array, &$xml_user_info)
     {
+        $this->cleanKeys($array);
         foreach ($array as $key => $value) {
+            $keyname = "$key";
+
+            if (is_numeric($key)) {
+                $keyname = "item_$key";
+            }
+
             if (is_array($value)) {
-                if (!is_numeric($key)) {
-                    $subnode = $xml_user_info->addChild("$key");
-                    $this->array_to_xml($value, $subnode);
-                } else {
-                    $subnode = $xml_user_info->addChild("item$key");
-                    $this->array_to_xml($value, $subnode);
-                }
+                $subnode = $xml_user_info->addChild($keyname);
+                $this->array_to_xml($value, $subnode);
             } else {
-                $xml_user_info->addChild("$key", htmlspecialchars("$value"));
+                $xml_user_info->addChild($keyname, htmlspecialchars("$value"));
             }
         }
+    }
+
+    private function cleanKeys(&$data)
+    {
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                if (is_numeric($key)) {
+                    continue;
+                }
+
+                $nkey = str_replace(' ', '_', $key);
+                if ($key != $nkey) {
+                    unset($data[$key]);
+                    $data[$nkey] = $value; // $this->cleanKeys($value);
+                }
+            }
+        }
+
+        return $data;
     }
 }
