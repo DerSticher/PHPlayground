@@ -13,9 +13,4 @@ abstract class Service extends Singleton
         $this->Other = ServiceLoader::getInstance();
         $this->Model = ModelLoader::getInstance();
     }
-
-    public function setService($name, $service)
-    {
-
-    }
 }
