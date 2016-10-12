@@ -5,8 +5,6 @@ namespace core\Response;
 /**
  * Response class to send XML responses.
  *
- * @todo Doesn't work with spaces in tag names...
- *
  * @author Robin Sticher <robin@sticher.info>
  */
 class XMLResponse extends ResponseAbstract
@@ -77,6 +75,10 @@ class XMLResponse extends ResponseAbstract
         }
     }
 
+    /**
+     * Removes spaces from keys in an assoc array.
+     * @param  array reference &$data Reference to the array that will be cleaned.
+     */
     private function cleanKeys(&$data)
     {
         if (is_array($data)) {

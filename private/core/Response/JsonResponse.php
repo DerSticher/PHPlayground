@@ -31,7 +31,7 @@ class JsonResponse extends ResponseAbstract
     protected function _send()
     {
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode($this->response);
+        echo json_encode($this->response, JSON_UNESCAPED_UNICODE);
         exit;
     }
 

@@ -152,7 +152,12 @@ class Router
         $class->{$call}();
     }
 
-    private function getParams($method)
+    /**
+     * Retrieves the request parameters depending on the HTTP REQUEST METHOD.
+     * @param  string $method HTTP REQUEST METHOD
+     * @return array         assoc array containing all parameters.
+     */
+    private function getParams(string $method)
     {
         $params = array();
 

@@ -67,7 +67,11 @@ abstract class Api extends Singleton
         $this->params = $params;
     }
 
-    protected function render($name)
+    /**
+     * Renders an html page that has to be located in the public folder.
+     * @param  string $name path and name of the HTML file (without .html).
+     */
+    protected function render(string $name)
     {
         include __DIR__ . DS . '..' . DS . '..' . DS . '..' . DS . 'public' . DS . $name . '.html';
     }
